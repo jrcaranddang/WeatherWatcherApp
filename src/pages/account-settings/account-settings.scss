@@ -1,0 +1,32 @@
+page-account-settings {
+    
+    ion-content {
+        position: relative;
+    }
+    
+    img {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        max-height: auto;
+        top: 0;
+        left: 0;
+    }
+    
+    .content {
+        position: relative;
+        top: 100px;
+        height: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+    
+    .overlay {
+        position: fixed;
+        opacity: 0.8;
+        background: black;
+        height: 100%;
+        max-height: auto;
+        width: 100%;
+    }
+}

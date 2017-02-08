@@ -1,0 +1,12 @@
+{
+  "name": "WeatherWatcherApp",
+  "app_id": "d86a0e71",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/autocomplete",
+      "proxyUrl": "https://autocomplete.wunderground.com"
+    }
+  ]
+}

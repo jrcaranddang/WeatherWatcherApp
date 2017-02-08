@@ -1,0 +1,38 @@
+<ion-menu [content]="content" id="menu1">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+
+            <ion-list-header>
+                <h2><strong>General</strong></h2>
+            </ion-list-header>
+
+            <button menuClose ion-item *ngFor="let p of pages;" (click)="openPage(p)">
+                <p text-center>{{p.title}}</p>
+            </button>
+
+            <button menuClose ion-item (click)="logout()">
+                <p text-center>Logout</p>
+            </button>
+
+            <button ion-item menuClose>
+                <button ion-button block text-center center><strong>Close Menu</strong></button>
+            </button>
+
+            <ion-list-header>
+                <h2><strong>Saved Cities</strong></h2>
+            </ion-list-header>
+
+            <page-card-list (getCard)="getCard($event)" (gotCardList)="gotCardList($event)"></page-card-list>
+
+        </ion-list>
+        
+        
+    </ion-content>
+
+</ion-menu>

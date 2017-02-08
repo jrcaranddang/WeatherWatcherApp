@@ -1,0 +1,31 @@
+<ion-item *ngFor="let card of cardList; let i = index;">
+  
+    <ion-card>
+        
+        <ion-card-header>
+            <ion-row>
+              <ion-col class="cityLocation" text-center>City/Location #{{i + 1}}:</ion-col>
+            </ion-row>
+                
+        </ion-card-header>
+        
+        <ion-card-content>
+          <ion-col text-center center>
+            <button ion-button outline round small (click)="goToCity(card)">
+                <p class="cityName" text-center>{{card.cityName}}</p>
+            </button>
+          </ion-col>
+        </ion-card-content>
+        
+        <ion-row baseline>
+          <ion-col text-center center>
+            <button ion-button outline round small color="danger" (click)="deleteCity(card.id, i)">
+              <ion-icon right name="trash"></ion-icon>
+                Delete
+            </button>
+          </ion-col>
+        </ion-row>
+        
+    </ion-card>
+
+</ion-item>

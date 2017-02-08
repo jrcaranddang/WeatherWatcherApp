@@ -1,0 +1,71 @@
+<ion-menu [content]="content" id="menu1" (ionClose)="menuClose()">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Menu</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-list>
+            
+            <ion-list-header>
+                <ion-col text-center>
+                    <h2><strong>General</strong></h2>
+                </ion-col>
+            </ion-list-header>
+            
+            <ion-col text-center *ngFor="let p of pages;">
+                <button menuClose ion-button small outline block color="primary" (click)="openPage(p)">
+                   {{p.title}}
+                </button>
+            </ion-col>
+            
+            <ion-col text-center>
+                <button menuClose ion-button small outline block color="primary" (click)="logout()">
+                    Logout
+                </button>
+            </ion-col>
+            
+            
+            <button ion-button outline full color="dark" (click)="openSavedCities()">
+                Saved Cities
+            </button>
+            
+<!------------------------------------------------------------------------------------------------>
+
+            <div *ngIf="this.isOpen">
+                
+                <ion-item *ngFor="let card of cardList; let i = index;">
+                    
+                    <ion-card>
+                        
+                        <ion-card-content text-center>
+                            
+                            <span ion-button outline clear item-left (click)="goToCity(card)">
+                                {{card.cityName}}
+                            </span>
+                            
+                            <ion-icon name="trash" item-right color="danger" (click)="deleteCity(card.id, i)"></ion-icon>
+                            
+                        </ion-card-content>
+                        
+                    </ion-card>
+                
+                </ion-item>
+                
+            </div>
+
+<!------------------------------------------------------------------------------------------------>
+
+            <button menuClose ion-button outline full color="dark">
+                Close Menu
+            </button>
+                
+        </ion-list>
+        
+    </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false" persistent="true"></ion-nav>

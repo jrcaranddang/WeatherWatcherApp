@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    
+    <img class="background" src="https://static.pexels.com/photos/125510/pexels-photo-125510.jpeg"/>
+    
+    <div class="overlay">
+    <!--<div [ngStyle]="{'opacity': 0.8, 'background': 'radial-gradient(circle, white, black)', 'height': '100%'}">-->
+    
+    <div class="content">
+        <ion-col>
+            <h1 text-center color="light">
+                <strong>Weather Watcher App</strong>
+            </h1>
+        </ion-col>
+        
+        <ion-col>
+            <ion-card>
+                
+                <form #loginForm="ngForm" (ngSubmit)="signinForm(loginForm)">
+                    <ion-item>
+                        <ion-label floating>Email</ion-label>
+                        <ion-input type="email" [(ngModel)]="user.email" name="email" required></ion-input>
+                    </ion-item>
+                    
+                    <ion-item>
+                        <ion-label floating>Password</ion-label>
+                        <ion-input type="password" [(ngModel)]="user.password" name="password" required></ion-input>
+                    </ion-item>
+                    
+                    <ion-item>
+                        <button ion-button type="submit" block="true">Log in</button>
+                    </ion-item>
+                </form>
+            
+                    <ion-item>
+                        <button ion-button block (click)="register()">Register</button>
+                    </ion-item>
+                
+            </ion-card>
+        </ion-col>
+    </div>
+    </div>    
+</ion-content>

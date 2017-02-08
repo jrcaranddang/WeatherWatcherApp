@@ -1,0 +1,32 @@
+page-lobby {
+    
+    ion-content {
+        position: relative;
+    }
+    
+    img.background {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        max-height: auto;
+        top: 0;
+        left: 0;
+    }
+    
+    .content {
+        position: relative;
+        margin: auto;
+    }
+    
+    .overlay {
+        position: absolute;
+        opacity: 0.8;
+        background: black;
+        height: 100%;
+        max-height: auto;
+        width: 100%;
+        overflow: scroll;
+    }
+    
+    
+}

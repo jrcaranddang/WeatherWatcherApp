@@ -1,0 +1,96 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Lobby</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <img class="background" src="https://static.pexels.com/photos/125510/pexels-photo-125510.jpeg">
+
+    <!--<div class="overlay" [ngStyle]="{'opacity': 0.8, 'background': 'black', 'height': 'auto', 'width': '100%', 'position': 'relative', 'z-index': '-1'}">-->
+    <!--<div [ngStyle]="{'opacity': 0.8, 'background': 'radial-gradient(circle, black, white)', 'height': '300%'}">-->
+
+  <div class="overlay">
+    <div class="content">
+      <ion-col>
+        <page-search-results [ngStyle]="{'max-width': '500px', 'margin': 'auto'}" [savedCard]="savedCard" (gotSavedCard)="gotSavedCard($event)"></page-search-results>
+      </ion-col>
+
+      <!------------------------------------------------------------------------------------------------------------>
+
+        <ion-col>
+
+          <ion-card *ngIf="this.localForecast" [ngStyle]="{'max-width': '500px', 'margin': 'auto'}">
+
+            <ion-card-header>
+              <ion-item text-center primary text-wrap>
+                <h1 #card.cityName>{{this.city}}, {{this.state}}</h1>
+              </ion-item>
+            </ion-card-header>
+
+            <ion-card-content>
+
+              <ion-item text-center>
+                <h2>{{this.day}}</h2>
+
+                <ion-item>
+                  <ion-col offset-33 width-33>
+                    <img src="{{this.icon2}}">
+                  </ion-col>
+                </ion-item>
+
+                <ion-item text-center text-wrap>
+                  <p><strong>Forecast:</strong> {{this.deg.checked ? this.forecast : this.forecastC}}</p>
+                </ion-item>
+
+                <ion-item text-center>
+                  <ion-row>
+                    <ion-col>
+                      <p><strong>High</strong>: {{this.high}}°{{ this.deg.checked ? "F" : "C"}}</p>
+                      <p><strong>Low</strong>: {{this.low}}°{{ this.deg.checked ? "F" : "C"}}</p>
+                    </ion-col>
+                  </ion-row>
+                </ion-item>
+
+              </ion-item>
+            </ion-card-content>
+
+              <div class="card-footer">
+                <ion-row primary>
+                  <ion-col>
+                    <ion-item>
+                      <button ion-button primary clear item-left (click)="saveFavorite(card)">
+                      <ion-icon name="star"></ion-icon>
+                      Save
+                    </button>
+                    </ion-item>
+                  </ion-col>
+
+                  <ion-col>
+                    <ion-item>
+                      <ion-label text-right>°{{ this.deg.checked ? "F" : "C"}}</ion-label>
+                      <ion-toggle #deg checked="true" item-right (ionChange)="degrees(deg)"></ion-toggle>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </div>
+
+          </ion-card>
+
+        </ion-col>
+      
+      <!------------------------------------------------------------------------------------------------------------>
+
+      <ion-col>
+        <page-weather-card [ngStyle]="{'max-width': '500px', 'margin': 'auto'}"></page-weather-card>
+      </ion-col>
+    </div>
+  </div>
+
+</ion-content>
